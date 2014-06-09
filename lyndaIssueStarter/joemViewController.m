@@ -10,9 +10,25 @@
 
 @interface joemViewController ()
 
+//one outlet
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 @end
 
 @implementation joemViewController
+
+//add one action
+- (IBAction)refreshTime:(id)sender {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//     i just want the time. 
+    [formatter setDateFormat:@"HH:mm"];
+    NSString *timeString = [formatter stringFromDate:[NSDate date]];
+    [[self timeLabel]setText:timeString];
+}
+
+
+
+
 
 - (void)viewDidLoad
 {
